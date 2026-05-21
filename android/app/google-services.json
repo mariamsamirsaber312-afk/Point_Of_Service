@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "239812637774",
+    "project_id": "point-of-service-c3891",
+    "storage_bucket": "point-of-service-c3891.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239812637774:android:ed831bec5daba8de9c7f1f",
+        "android_client_info": {
+          "package_name": "com.example.point_of_service"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsAegpT8rw0dFA5h9ox4Jl3H0A4_c7Wbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

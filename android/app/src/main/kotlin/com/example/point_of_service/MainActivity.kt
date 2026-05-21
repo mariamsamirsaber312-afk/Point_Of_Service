@@ -1,0 +1,5 @@
+package com.example.point_of_service
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
