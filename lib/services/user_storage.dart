@@ -29,8 +29,7 @@ class UserStorage {
 
     if (data == null) return null;
     user = UserModel.fromJson(jsonDecode(data));
-    print("@@@@@@@@@@@@@@@@@@@");
-    print(token);
+
     return user;
   }
 

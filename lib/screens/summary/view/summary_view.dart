@@ -1,8 +1,6 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:point_of_service/constants/figma_size.dart';
 import 'package:point_of_service/screens/pos/model/product_model.dart';
 import 'package:point_of_service/screens/product_image_slider/view/product_image_slider.dart';
@@ -20,6 +18,7 @@ class SummaryView extends StatelessWidget {
     final controller = Get.put(SummaryController());
     
     controller.onInit();
+
     return Scaffold(
       backgroundColor: AppColor.paymentViewBG,
       body: SingleChildScrollView(
@@ -128,7 +127,7 @@ class SummaryView extends StatelessWidget {
                   "Rp ${total.toStringAsFixed(2)}",
                   isTotal: true,
                 ),
-                ElevatedButton(onPressed: (){Get.offAllNamed('/payment');}, child: Text('Checkout'),style: AppButtonStyle.checkoutBtn(context),),
+                ElevatedButton(onPressed: (){Get.toNamed('/payment');}, child: Text('Checkout'),style: AppButtonStyle.checkoutBtn(context),),
               ],
                     ))
             );

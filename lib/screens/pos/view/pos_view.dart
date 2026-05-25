@@ -78,13 +78,14 @@ class PosView extends StatelessWidget {
                      }
 
                      return  Padding(
-                       padding: const EdgeInsets.only(right: 100),
+                       padding: const EdgeInsets.only(right: 0),
                        child: Row(
                          children: [
                            CircleAvatar(
                              radius: FigmaSize.width(context, 48),
                              backgroundImage: NetworkImage(controller.user.value!.image),
                            ),
+                           SizedBox(width: 5,),
 
                            Column(
                              mainAxisAlignment: MainAxisAlignment.center,

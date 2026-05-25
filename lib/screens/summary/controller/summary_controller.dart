@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:point_of_service/services/firebase_services.dart';
 import 'package:point_of_service/services/user_storage.dart';
-
 import '../../pos/model/product_model.dart';
 
 class SummaryController extends GetxController{
@@ -10,6 +9,10 @@ class SummaryController extends GetxController{
 
   RxList<ProductModel> products = <ProductModel>[].obs;
   RxDouble productsPrice =1.0.obs;
+  RxDouble subtotal =1.0.obs;
+  RxDouble services =1.0.obs;
+  RxDouble tax =1.0.obs;
+  RxDouble total =1.0.obs;
   var isLoading = true.obs;
   late RxInt quantity ;
 
@@ -27,7 +30,6 @@ class SummaryController extends GetxController{
   Future<List<ProductModel>> fetchProducts() async {
 
     try {
-
       products.value = await service.getProducts();
       allProductPrice();
 
@@ -52,18 +54,25 @@ class SummaryController extends GetxController{
 
   void allProductPrice(){
     productsPrice.value = 0;
+    subtotal.value = 0 ;
+    services.value = 0 ;
+    tax.value = 0;
+    total.value = 0 ;
     for (int i = 0;i< products.length;i++){
-      print(productsPrice.value);
       productsPrice.value += products[i].price * products[i].selectedCount;
     }
-    print(productsPrice.value);
+
+     subtotal.value = productsPrice.value;
+     services.value = subtotal * 0.01;
+     tax.value = (subtotal.value + services.value) * 0.11;
+     total.value = subtotal.value + services.value + tax.value;
+
   }
 
 Future<void> initService() async {
   final user = await UserStorage.getUser(); // ✅ استني القيمة
 
   if (user != null) {
-    print("JESUS");
     service = FirebaseServices(user);
     fetchProducts();
   } else {

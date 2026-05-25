@@ -86,6 +86,7 @@ class HomeView extends StatelessWidget {
               ),
 
             onTap: () async{
+
                 if (index == 1) {
                   await Get.find<SummaryController>().fetchProducts();
                 }
